@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Linkedin, Sun, Moon } from 'lucide-react';
 
 const skills = [
   "Python", "C", "Java", "HTML", "CSS", "React", "Vite", "Tailwind CSS",
