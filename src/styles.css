@@ -1,0 +1,148 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles */
+.theme-toggle {
+  @apply p-2 bg-gray-200 dark:bg-gray-800 transition-all duration-300;
+}
+
+.alien-toggle {
+  @apply text-gray-600 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400;
+}
+
+.dark-toggle {
+  @apply text-yellow-600 dark:text-yellow-300;
+}
+
+.skill-tag {
+  @apply px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm;
+}
+
+.social-icon {
+  @apply text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300;
+}
+
+/* Alien mode styles */
+.alien-mode {
+  background: linear-gradient(to bottom, #000000, #0a2a12);
+  animation: pulse-bg 4s infinite alternate, flicker-bg 3s infinite;
+}
+
+.alien-mode h1,
+.alien-mode h2,
+.alien-mode h3,
+.alien-mode p,
+.alien-mode span,
+.alien-mode a {
+  color: #5cff5c;
+  text-shadow: 0 0 5px #5cff5c, 0 0 10px #5cff5c;
+  animation: glow 1.5s infinite alternate, flicker-text 3s infinite;
+}
+
+.alien-mode .bg-gray-100,
+.alien-mode .dark\:bg-gray-800 {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 2px solid #5cff5c;
+  box-shadow: 0 0 15px #5cff5c;
+  animation: flicker-bg 3s infinite;
+}
+
+.alien-mode .text-yellow-500,
+.alien-mode .dark\:text-yellow-300 {
+  color: #5cff5c;
+}
+
+.alien-mode .skill-tag {
+  background-color: rgba(0, 255, 0, 0.2);
+  color: #5cff5c;
+  border: 1px solid #5cff5c;
+  animation: float 3s infinite alternate, flicker-bg 3s infinite;
+}
+
+.alien-mode .social-icon {
+  color: #5cff5c;
+  filter: drop-shadow(0 0 5px #5cff5c);
+  animation: flicker-text 3s infinite;
+}
+
+.alien-mode .theme-toggle {
+  background-color: rgba(0, 255, 0, 0.2);
+  border: 1px solid #5cff5c;
+  box-shadow: 0 0 10px #5cff5c;
+  animation: flicker-bg 3s infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #5cff5c, 0 0 10px #5cff5c;
+  }
+  to {
+    text-shadow: 0 0 10px #5cff5c, 0 0 20px #5cff5c, 0 0 30px #5cff5c;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-bg {
+  0%, 100% {
+    background-color: #000000;
+  }
+  50% {
+    background-color: #0a2a12;
+  }
+}
+
+/* Flicker Animations */
+@keyframes flicker-text {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #5cff5c, 0 0 10px #5cff5c;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+@keyframes flicker-bg {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    background-color: #0a2a12;
+  }
+  20%, 24%, 55% {
+    background-color: #1f4f1e;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Default (for desktop and larger screens) */
+html {
+  font-size: 100%;
+}
+
+/* Mobile (for smaller screens) */
+@media (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+}
